@@ -1,0 +1,103 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>InstruApp</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content ="width = device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="{% static 'css/materialize.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="{% static 'css/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo" style="color: black">InstruApp</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/" class="waves-effect waves-dark btn-small">Inicio
+          <i class="material-icons right">home</i>
+            </a>
+        </li>
+      </ul>
+
+      <ul id="nav-mobile" class="sidenav">
+        <li><a href="/">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+
+<div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">  
+      <div class="container">
+        <br><br>
+        <h1 class="header center teal-text text-lighten-4"></h1>
+        <div class="row center">
+          <h5 class="header col s12 light"></h5>
+        </div>
+        <div class="row center">
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'img/instruments.jpg' %}" alt="Unsplashed background img 1"></div>
+</div>
+
+<div class="container">
+<h1 style="text-align: center">Qué Instrumento Estás Buscando?</h1>
+<div class="row">
+  <div class="col s4">
+    <!--Promo Content 1 goes here -->
+    <div class="center">
+      <i class="large material-icons" style="color: black">album</i>
+      <p>Base de datos de Mercado Libre</p>
+      <p class="light center">Busca aquí por medio de una bella interfáz</p>
+    </div>
+  </div>
+
+  <div class="col s4">
+    <!--Promo Content 2 goes here -->
+    <div class="center">
+      <i class="large material-icons" style="color: orange">audiotrack</i>
+      <p>Filtra tus busquedas</p>
+      <p class="light center">Construimos funcionalidad a base de precios.</p>
+    </div>
+  </div>
+
+  <div class="col s4">
+    <!--Promo Content 3 goes here -->
+    <div class="center">
+      <i class="large material-icons" style="color: blue">headset</i>
+      <p>Una interfáz más amigable</p>
+      <p class="light center">Creamos esto con pasión.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container">
+  <form action="{% url 'new_search' %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="search" placeholder="Buscar">
+    <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+      <i class="material-icons right">music_video</i>
+    </button>
+  </form>
+</div>
+
+{% block content %}
+<div class="footer-copyright">
+  Made By: <a class="teal-text text-lighten-2" href="http://materializecss.com">Juan Parra</a>
+</div>
+{% endblock content %}
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="{% static 'js/materialize.js' %}"></script>
+<script src="{% static 'js/init.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class= "container">
+	<h2 style="text-align: center">{{ search | title }}</h2>
+	<div class="row">
+	{% for post in final_postings %}
+		    <div class="col s4">
+		      	<div class="card">
+		        	<div class="card-image">
+		        		<a href="{{ post.1 }}"><img class="lazy" src="{{ post.3 }}" alt=""></a>
+		       		</div>
+		        	<div class="card-content">
+		          	<p>{{ post.0 }}</p>
+		        	</div>
+		        	<div class="card-action">
+		          		<a href="{{ post.1 }}">Ver Listado: ${{ post.2 }}</a>
+		        	</div>
+		      	</div>
+		  	</div>
+	{% endfor %}
+	</div>
+</div>
+<div class="footer-copyright">
+  Made By: <a class="teal-text text-lighten-2" href="http://materializecss.com">Juan Parra</a>
+</div>
+{% endblock content %}
+
